@@ -1,0 +1,6 @@
+test0:
+  host: opc@c01p1-sftp04
+  path: /weblogic_appdata/from_onprem_jenkins/paymentsense/tmp/
+  mask: \S+\.tmp$
+  job_name: dummy_job_01
+  inactive: True
