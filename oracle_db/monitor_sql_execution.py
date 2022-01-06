@@ -52,9 +52,7 @@ oci_ps_uat_bo
 
 conn=connect_to_database('oci_ps_uat_bo')
 c = conn.cursor()
-print('*'*100)
-print(sql)
-print('*'*200)
+
 #ui1=input('do you want to execute above sql? y/n: ')
 if True:
   c.execute(sql)
@@ -67,7 +65,11 @@ if True:
   elif purpose=='select':
     result_set=c.fetchall()
     if result_set:
+      print('{} + {} + {} + {} + {} + {}'.format('-'*50,'-'*15,'-'*25,'-'*20,'-'*5,'-'*64))
+      print('{} | {} | {} | {} | {} | {}'.format('session kill cmd'.ljust(50,' '),'user'.ljust(15,' '),'time_in_wait'.ljust(25,' '),'sql_id'.ljust(20,' '),'piece'.ljust(4,' '),'sql'.ljust(64,' ')))
+      print('{} + {} + {} + {} + {} + {}'.format('-'*50,'-'*15,'-'*25,'-'*20,'-'*5,'-'*64))
       for row in result_set:
-        print('{} | {} | {} | {} | {} | {}'.format(row[0].ljust(50,' '),row[1].ljust(15,' '),str(row[2]).ljust(25,' '),row[3].ljust(20,' '),str(row[4]).ljust(4,' '),row[5].strip().ljust(64,' ')))
+        print('{} | {} | {} | {} | {} | {}'.format(row[0].ljust(50,' '),row[1].ljust(15,' '),str(row[2]).ljust(25,' '),row[3].ljust(20,' '),str(row[4]).ljust(5,' '),row[5].strip().ljust(64,' ')))
+      print('{} + {} + {} + {} + {} + {}'.format('-'*50,'-'*15,'-'*25,'-'*20,'-'*5,'-'*64))
 
 conn.close()
